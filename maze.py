@@ -16,30 +16,26 @@ class Maze:
         topnodes = [None] * width
         count = 0
 
-        for x in range (1, width - 1):
-          if data[x] > 0:
-            self.start = Maze.Node((0, x))
-            topnodes[x] = self.start
-            count += 1
-            break
+        for x in range(1, width - 1):
+            if data[x] > 0:
+                self.start = Maze.Node((0, x))
+                topnodes[x] = self.start
+                count += 1
+                break
 
         for y in range(1, height - 1):
-          row_offset = y * width
-          row_above_offset = row_offset - width
-          row_below_offset = row_offset + width
-          
-          prv = False
-          cur = False
-          nxt = data[row_offset + 1] > 0
+            row_offset = y * width
+            row_above_offset = row_offset - width
+            row_below_offset = row_offset + width
 
-          left_node = None
+            prv = False
+            cur = False
+            nxt = data[row_offset + 1] > 0
 
-          for x in range (1, width - 1):
-            # Read the image once per pixel (marginal optimization)
-            prv = cur
-            cur = nxt
-            nxt = data[row_offset + x + 1] > 0
+            left_node = None
 
-
-
-            
+            for x in range(1, width - 1):
+                # Read the image once per pixel (marginal optimization)
+                prv = cur
+                cur = nxt
+                nxt = data[row_offset + x + 1] > 0
