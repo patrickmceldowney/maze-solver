@@ -1,9 +1,9 @@
 from abc import ABCMeta, abstractmethod
 from FibonacciHeap import FibHeap
 from typing import Self
+from queue import Queue
 import itertools
 import heapq
-import Queue
 
 
 class PriorityQueue:
