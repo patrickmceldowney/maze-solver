@@ -61,7 +61,8 @@ def solve(factory, method, input_file, output_file):
 
         if a[0] == b[0]:
             # horizontal line -- y is equal
-            impixels[x, a[0]] = px
+            for x in range(min(a[1], b[1]), max(a[1], b[1])):
+                impixels[x, a[0]] = px
         elif a[1] == b[1]:
             # vertical line -- x is equal
             for y in range(min(a[0], b[0]), max(a[0], b[0]) + 1):
