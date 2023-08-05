@@ -4,8 +4,10 @@ from collections import deque
 def solve(maze):
     path = deque([maze.start])
     current = maze.start.Neighbors[2]
+    print(current)
 
     if current == None:
+        print("no current")
         return path
 
     heading = 2  # south
@@ -36,7 +38,7 @@ def solve(maze):
         if n[heading] != None:
             current = n[heading]
             continue
-        if [(heading + turn) % 4] != None:
+        if n[(heading + turn) % 4] != None:
             heading = (heading + turn) % 4
             current = n[heading]
             continue
@@ -45,7 +47,7 @@ def solve(maze):
             current = n[heading]
             continue
 
-        completed = True
+        completed = False
         break
 
     return [path, [count, len(path), completed]]

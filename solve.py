@@ -24,7 +24,7 @@ def solve(factory, method, input_file, output_file):
     print("Time Elapsed", total, "\n")
 
     # Create and run solver
-    [title, solver] = factory.creates_solver(method)
+    [title, solver] = factory.create_solver(method)
     print("Starting solve:", title)
 
     t0 = time.time()

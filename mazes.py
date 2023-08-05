@@ -24,35 +24,37 @@ class Maze:
                 break
 
         for y in range(1, height - 1):
+            print("row", str(y))
             row_offset = y * width
             row_above_offset = row_offset - width
             row_below_offset = row_offset + width
 
-            prv = False
-            cur = False
-            nxt = data[row_offset + 1] > 0
+            prev = False
+            curr = False
+            next = data[row_offset + 1] > 0
 
             left_node = None
 
             for x in range(1, width - 1):
                 # Read the image once per pixel (marginal optimization)
-                prv = cur
-                cur = nxt
-                nxt = data[row_offset + x + 1] > 0
+                prev = curr
+                curr = next
+                next = data[row_offset + x + 1] > 0
 
                 n = None
 
-                if cur == False:
+                if curr == False:
                     # on wall - no action
+                    print("On wall, no action taken")
                     continue
 
-                if prv == True:
+                if prev == True:
                     if next == True:
                         # Path Path Path
                         # Create node only if paths above or below
                         if (
                             data[row_above_offset + x] > 0
-                            or data[row_above_offset + x] > 0
+                            or data[row_below_offset + x] > 0
                         ):
                             n = Maze.Node((y, x))
                             left_node.Neighbors[1] = n
@@ -66,7 +68,7 @@ class Maze:
                         n.Neighbors[3] = left_node
                         left_node = None
                 else:
-                    if nxt == True:
+                    if next == True:
                         # wall wall path
                         # create path at start of corridor
                         n = Maze.Node((y, x))
@@ -79,21 +81,21 @@ class Maze:
                         ):
                             n = Maze.Node((y, x))
 
-            # If node isn't none, we can assume we can connect N-S somewhere
-            if n != None:
-                # clear above, connect to top node
-                if data[row_above_offset + x] > 0:
-                    t = top_nodes[x]
-                    t.Neighbors[2] = n
-                    n.Neighbors[0] = t
+                # If node isn't none, we can assume we can connect N-S somewhere
+                if n != None:
+                    # clear above, connect to top node
+                    if data[row_above_offset + x] > 0:
+                        t = top_nodes[x]
+                        t.Neighbors[2] = n
+                        n.Neighbors[0] = t
 
-                # if clear below, put this new node in the top row for next connection
-                if data[row_below_offset + x] > 0:
-                    top_nodes[x] = n
-                else:
-                    top_nodes[x] = None
+                    # if clear below, put this new node in the top row for next connection
+                    if data[row_below_offset + x] > 0:
+                        top_nodes[x] = n
+                    else:
+                        top_nodes[x] = None
 
-                count += 1
+                    count += 1
 
         # end row
         row_offset = (height - 1) * width
