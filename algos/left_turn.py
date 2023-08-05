@@ -2,7 +2,7 @@ from collections import deque
 
 
 def solve(maze):
-    path = dequeue([maze.start])
+    path = deque([maze.start])
     current = maze.start.Neighbors[2]
 
     if current == None:
