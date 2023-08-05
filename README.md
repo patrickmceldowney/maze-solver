@@ -7,3 +7,9 @@
 - and one white square exists at the bottom row, representing the end
 
 ## Running a maze
+
+For help with the script arguments run `py solve.py -h`
+
+`py -m <method_name> input_file output_file`
+
+## Debugging
