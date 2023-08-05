@@ -10,6 +10,6 @@
 
 For help with the script arguments run `py solve.py -h`
 
-`py -m <method_name> input_file output_file`
+`py -m <method_name> maze_examples/<input_file> solved_mazes/<output_file>`
 
 ## Debugging
