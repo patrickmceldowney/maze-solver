@@ -55,7 +55,7 @@ class Maze:
                             or data[row_above_offset + x] > 0
                         ):
                             n = Maze.Node((y, x))
-                            left_node.Neighboers[1] = n
+                            left_node.Neighbors[1] = n
                             n.Neighbors[3] = left_node
                             left_node = n
                     else:

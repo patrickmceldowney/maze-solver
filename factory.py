@@ -14,10 +14,9 @@ class SolverFactory:
 
     def create_solver(self, type):
         if type == "left_turn":
-            # import leftturn
-            # return ["Left turn only", leftturn.solve]
-            print("Left turn only")
+            from algos.left_turn import solve
 
+            return ["Left turn only", solve]
         elif type == "depth_first":
             # import depth_first
             print("Depth first search")
