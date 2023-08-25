@@ -83,7 +83,7 @@ def solve(maze):
                         else:
                             unvisited.decrease_key(v_node, new_distance)
                             distances[v_pos_index] = new_distance
-                            prev[v_pos_index] = u
+                            previous[v_pos_index] = u
 
         visited[u_pos_index] = True
 

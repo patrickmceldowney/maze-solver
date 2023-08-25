@@ -19,7 +19,7 @@ class FibHeap:
                 return
 
             self.next.previous = node.previous
-            node.previous.next - self.next
+            node.previous.next = self.next
             self.next = node
             node.previous = self
 
@@ -74,7 +74,6 @@ class FibHeap:
     def _insert_node(self, node: Self):
         if self.min_node == None:
             self.min_node = node
-
         else:
             self.min_node.insert(node)
             if node.key < self.min_node.key:
@@ -143,7 +142,7 @@ class FibHeap:
                     current = temp
 
                 other.remove()
-                current.addChild(other)
+                current.add_child(other)
                 degree_roots[current_degree] = None
                 current_degree += 1
 
