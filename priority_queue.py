@@ -74,7 +74,7 @@ class HeapPQ(PriorityQueue):
 
     def remove_minimum(self):
         while True:
-            (priority, item) = heapq.heapop(self.pq)
+            (priority, item) = heapq.heappop(self.pq)
             if (priority, item) in self.removed:
                 self.removed.discard((priority, item))
             else:

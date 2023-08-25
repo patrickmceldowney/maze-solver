@@ -21,8 +21,9 @@ class SolverFactory:
             # import depth_first
             print("Depth first search")
         elif type == "dijkstra":
-            # import dijkstra
-            print("Dijkstra's Algorithm")
+            from algos.dijkstra import solve
+
+            return ["Dijkstra's Algorithm", solve]
         elif type == "astar":
             # import astar
             print("A-star search")

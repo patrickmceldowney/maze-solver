@@ -10,6 +10,10 @@
 
 For help with the script arguments run `py solve.py -h`
 
-`py -m <method_name> maze_examples/<input_file> solved_mazes/<output_file>`
+`py solve.py -m <method_name> <input_filename>`
+
+`py solve -m dijkstra small`
+
+Running this will output the solved mazes into the directory `solved_mazes`
 
 ## Debugging

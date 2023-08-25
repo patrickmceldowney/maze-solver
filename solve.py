@@ -9,10 +9,10 @@ Image.MAX_IMAGE_PIXELS = None
 import argparse
 
 
-def solve(factory, method, input_file, output_file):
+def solve(factory, method, file):
     # load image
     print("Loading Image")
-    im = Image.open(input_file)
+    im = Image.open("maze_examples/" + file + ".png")
 
     # Creat the maze and time it.
     print("Creating maze")
@@ -68,7 +68,7 @@ def solve(factory, method, input_file, output_file):
             for y in range(min(a[0], b[0]), max(a[0], b[0]) + 1):
                 impixels[a[1], y] = px
 
-    im.save(output_file)
+    im.save("solved_mazes/" + file + ".png")
 
 
 def main():
@@ -82,11 +82,16 @@ def main():
         default=sf.Default,
         choices=sf.Choices,
     )
-    parser.add_argument("input_file")
-    parser.add_argument("output_file")
+    parser.add_argument(
+        "-f",
+        "--file",
+        nargs="?",
+        default="normal",
+        choices=["braid2k", "braid200", "combo400", "normal", "small", "tiny"],
+    )
     args = parser.parse_args()
 
-    solve(sf, args.method, args.input_file, args.output_file)
+    solve(sf, args.method, args.file)
 
 
 if __name__ == "__main__":
