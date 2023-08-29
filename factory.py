@@ -29,5 +29,6 @@ class SolverFactory:
             # import astar
             print("A-star search")
         elif type == "breadth_first":
-            # import breadth_first
-            print("Breadth first search")
+            from algos.breadth_first import solve
+
+            return ["Breadth First", solve]
