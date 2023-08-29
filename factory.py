@@ -18,8 +18,9 @@ class SolverFactory:
 
             return ["Left turn only", solve]
         elif type == "depth_first":
-            # import depth_first
-            print("Depth first search")
+            from algos.depth_first import solve
+
+            return ["Depth First", solve]
         elif type == "dijkstra":
             from algos.dijkstra import solve
 

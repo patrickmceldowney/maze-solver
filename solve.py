@@ -68,7 +68,7 @@ def solve(factory, method, file):
             for y in range(min(a[0], b[0]), max(a[0], b[0]) + 1):
                 impixels[a[1], y] = px
 
-    im.save("solved_mazes/" + file + "_solved.png")
+    im.save("solved_mazes/" + file + "_" + method + "_solved.png")
 
 
 def main():
