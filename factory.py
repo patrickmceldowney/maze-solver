@@ -26,8 +26,9 @@ class SolverFactory:
 
             return ["Dijkstra's Algorithm", solve]
         elif type == "astar":
-            # import astar
-            print("A-star search")
+            from algos.astar import solve
+
+            return ["A*", solve]
         elif type == "breadth_first":
             from algos.breadth_first import solve
 

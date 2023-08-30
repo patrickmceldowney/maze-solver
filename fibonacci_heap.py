@@ -100,7 +100,7 @@ class FibHeap:
         removed_node = self.min_node
         self.count -= 1
 
-        # Ass all old root children as new roots
+        # Assign all old root children as new roots
         if self.min_node.child != None:
             c = self.min_node.child
 

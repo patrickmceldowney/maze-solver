@@ -5,10 +5,11 @@ def solve(maze):
     start = maze.start
     end = maze.end
     width = maze.width
+    total = maze.width * maze.height
     stack = deque([start])
     shape = (maze.height, maze.width)
-    prev = [None] * (maze.width * maze.height)
-    visited = [False] * (maze.width * maze.height)
+    prev = [None] * total
+    visited = [False] * total
     count = 0
     completed = False
 
